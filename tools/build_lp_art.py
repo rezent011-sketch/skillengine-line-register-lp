@@ -103,8 +103,8 @@ def circular_paste(base: Image.Image, src: Image.Image, center: tuple[int, int],
 
 def erase_ribbon(hero: Image.Image) -> None:
     """Remove the maroon 「月2回 一対一」 ribbon with nearby lightning/starfield."""
-    y0, y1 = 536, 666
-    x0, x1 = 92, 988
+    y0, y1 = 528, 678
+    x0, x1 = 70, 1010
     left = hero.crop((48, y0, 168, y1))
     right = hero.crop((912, y0, 1032, y1))
     w, h = x1 - x0, y1 - y0
@@ -153,9 +153,26 @@ def replace_consult_icon(hero: Image.Image) -> None:
     gold_text(draw, (278, 1454), "稼がせる", size=46)
 
 
+def restore_wreath_crown(hero: Image.Image) -> None:
+    """The ribbon wipe can nick the crown; copy gold wreath pixels back from the source."""
+    src = orig()
+    x0, y0, x1, y1 = 300, 658, 780, 760
+    dst = hero.crop((x0, y0, x1, y1))
+    src_p = src.crop((x0, y0, x1, y1))
+    dp, sp = dst.load(), src_p.load()
+    for yy in range(src_p.size[1]):
+        for xx in range(src_p.size[0]):
+            r, g, b, a = sp[xx, yy]
+            # gold / cream wreath and crown, not maroon ribbon cloth
+            if r > 140 and g > 90 and b < 120 and r > b + 30:
+                dp[xx, yy] = (r, g, b, a)
+    hero.paste(dst, (x0, y0))
+
+
 def build_hero() -> Image.Image:
     hero = orig()
     erase_ribbon(hero)
+    restore_wreath_crown(hero)
     replace_consult_icon(hero)
     return hero.convert("RGB")
 
