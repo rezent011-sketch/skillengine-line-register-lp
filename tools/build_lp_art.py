@@ -102,7 +102,7 @@ def circular_paste(base: Image.Image, src: Image.Image, center: tuple[int, int],
 
 
 def erase_ribbon(hero: Image.Image) -> None:
-    """Remove the maroon 「月2回 一対一」 ribbon with nearby lightning/starfield."""
+    """Remove the leftover maroon ribbon with nearby lightning/starfield."""
     y0, y1 = 528, 678
     x0, x1 = 70, 1010
     left = hero.crop((48, y0, 168, y1))
@@ -122,12 +122,15 @@ def erase_ribbon(hero: Image.Image) -> None:
 
 
 def replace_consult_icon(hero: Image.Image) -> None:
-    consult = load(ASSETS / "section-consult.png")
-    chest = consult.crop((220, 10, 860, 520))
+    # Treasure chest now lives on the hero itself; do not require a consult plate.
+    chest_src = ASSETS / "section-hero.png"
+    if not chest_src.exists():
+        return
+    chest = load(chest_src).crop((140, 1100, 400, 1360))
     circular_paste(hero, chest, center=(268, 1286), radius=122)
 
     # Copy the matching right-plaque inner field, then paint 稼がせる.
-    # The original left plaque still contains 個別コンサル glyph pixels at the edges.
+    # Flatten leftover gold lettering on the donor plaque field.
     src_field = orig().crop((668, 1418, 952, 1490))
     field = src_field.resize((340, 72), Image.Resampling.LANCZOS)
     # flatten any leftover gold lettering on the donor too
