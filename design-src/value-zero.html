@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>value-zero</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .stage { background: #b8e4ff; }
+    .card {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      top: 160px;
+      bottom: 160px;
+      background: #fff;
+      border-radius: 36px;
+      border: 8px solid #eab308;
+      box-shadow: 0 18px 40px rgba(15,40,80,.18), inset 0 0 0 3px #fde68a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 44px;
+    }
+    .zero-wrap { position: relative; margin-bottom: 20px; }
+    .zero {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 220px;
+      line-height: 0.9;
+      color: #2563eb;
+      text-shadow: 0 6px 0 #93c5fd;
+    }
+    .spark {
+      position: absolute;
+      color: #2563eb;
+      font-size: 42px;
+    }
+    .spark.a { top: 10px; right: -24px; }
+    .spark.b { bottom: 30px; left: -20px; }
+    .badge {
+      background: #1e1b4b;
+      color: #fff;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: 0.06em;
+      padding: 14px 36px;
+      border-radius: 16px;
+      margin-bottom: 28px;
+    }
+    .head {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 88px;
+      color: #dc2626;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+    .sub {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 38px;
+      color: #1e293b;
+      text-align: center;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <img class="bg" src="bg/water-bg.png" alt="" />
+    <div class="card">
+      <div class="badge">経験ゼロでも</div>
+      <div class="zero-wrap">
+        <div class="zero">0</div>
+        <span class="spark a">✦</span>
+        <span class="spark b">✦</span>
+      </div>
+      <div class="head">スキル0</div>
+      <div class="sub">人脈0　SNS経験0<br>AI経験0 でも<br>稼げる環境</div>
+    </div>
+  </div>
+</body>
+</html>
