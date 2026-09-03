@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>value-consult</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .stage { background: #b8e4ff; }
+    .card {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      top: 160px;
+      bottom: 160px;
+      background: #fff;
+      border-radius: 36px;
+      border: 8px solid #eab308;
+      box-shadow: 0 18px 40px rgba(15,40,80,.18), inset 0 0 0 3px #fde68a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 48px;
+    }
+    .icon {
+      width: 220px;
+      height: 220px;
+      margin-bottom: 36px;
+    }
+    .badge {
+      background: #1e1b4b;
+      color: #fff;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: 0.06em;
+      padding: 14px 36px;
+      border-radius: 16px;
+      margin-bottom: 48px;
+    }
+    .num {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 140px;
+      color: #dc2626;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-shadow: 0 4px 0 #fecaca;
+      margin-bottom: 28px;
+    }
+    .sub {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      color: #1e293b;
+      text-align: center;
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <img class="bg" src="bg/water-bg.png" alt="" />
+    <div class="card">
+      <svg class="icon" viewBox="0 0 220 220" aria-hidden="true">
+        <circle cx="110" cy="110" r="104" fill="#eff6ff" stroke="#2563eb" stroke-width="6"/>
+        <ellipse cx="78" cy="128" rx="34" ry="18" fill="#2563eb"/>
+        <circle cx="78" cy="86" r="22" fill="#2563eb"/>
+        <ellipse cx="142" cy="128" rx="34" ry="18" fill="#3b82f6"/>
+        <circle cx="142" cy="86" r="22" fill="#3b82f6"/>
+        <rect x="70" y="142" width="80" height="12" rx="6" fill="#93c5fd"/>
+        <path d="M54 64c0-10 16-10 16 0v8c0 6-16 6-16 0z" fill="#bfdbfe"/>
+        <path d="M150 58c0-10 16-10 16 0v8c0 6-16 6-16 0z" fill="#bfdbfe"/>
+      </svg>
+      <div class="badge">みっちり個別コンサル</div>
+      <div class="num">月2回</div>
+      <div class="sub">一対一で<br>みっちり進める</div>
+    </div>
+  </div>
+</body>
+</html>
